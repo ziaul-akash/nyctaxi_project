@@ -1,4 +1,4 @@
-from datetime import datefrom 
+from datetime import date 
 from dateutil.relativedelta import relativedelta
 
 def get_target_yyyymm(months_ago = 2):
