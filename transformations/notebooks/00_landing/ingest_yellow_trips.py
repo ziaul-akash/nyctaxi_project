@@ -1,3 +1,5 @@
+print("HI")
+
 import urllib.request
 import shutil
 import os
