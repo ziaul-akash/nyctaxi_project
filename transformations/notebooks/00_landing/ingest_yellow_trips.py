@@ -1,4 +1,4 @@
-print("HI")
+# Databricks notebook source
 
 import urllib.request
 import shutil
