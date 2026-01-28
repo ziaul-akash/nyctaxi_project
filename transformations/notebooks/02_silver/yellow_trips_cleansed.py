@@ -3,14 +3,27 @@ from pyspark.sql.functions import max, min, col, when, timestamp_diff
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 
+import os
+import sys
+
+project_root = os.path.abspath(os.path.join(os.getcwd(), "../.."))
+
+print(project_root)
+print(sys.path)
+
+if project_root not in sys.path:
+    sys.path.append(project_root)
+
+
+from modules.utils.date_utils import get_month_start_n_months_ago
 # COMMAND ----------
 
 df= spark.read.table("nyctaxi.01_bronze.yellow_trips_raw")
 
 # COMMAND ----------
 
-two_months_ago= datetime.now().replace(day=1)- relativedelta(months= 2) 
-one_month_ago=datetime.now().replace(day=1)- relativedelta(months= 1) 
+two_months_ago= get_month_start_n_months_ago(2)
+one_month_ago=get_month_start_n_months_ago(1)
 print(one_month_ago)
 
 # COMMAND ----------
