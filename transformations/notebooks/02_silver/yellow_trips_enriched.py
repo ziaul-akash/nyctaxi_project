@@ -1,7 +1,19 @@
 # Databricks notebook source
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
+import os
+import sys
 
+project_root = os.path.abspath(os.path.join(os.getcwd(), "../.."))
+
+print(project_root)
+print(sys.path)
+
+if project_root not in sys.path:
+    sys.path.append(project_root)
+
+
+from modules.utils.date_utils import get_month_start_n_months_ago
 # COMMAND ----------
 
 df_trips= spark.read.table("nyctaxi.02_silver.yellow_trips_cleansed")
@@ -18,7 +30,7 @@ df_trips.agg(
 
 # COMMAND ----------
 
-two_months_ago= datetime.now().replace(day=1)- relativedelta(months= 2) 
+two_months_ago= get_month_start_n_months_ago(2)
 df_trips= df_trips.filter(df_trips.tpep_pickup_datetime >= two_months_ago)
 
 # COMMAND ----------
