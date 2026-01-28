@@ -8,6 +8,7 @@ project_root = os.path.abspath(os.path.join(os.getcwd(), "../.."))
 if project_root not in sys.path:
     sys.path.append(project_root)
 
+from modules.utils.date_utils import get_target_yyyymm
 from modules.data_loader.file_downloader import download_file
 from datetime import datetime, date,timezone
 from dateutil.relativedelta import relativedelta
@@ -15,8 +16,8 @@ from dateutil.relativedelta import relativedelta
 # COMMAND ----------
 
 #formatting date to download data from 2 months prior to the current date
-two_months_ago= date.today() - relativedelta(months=2)
-formatted_date = two_months_ago.strftime("%Y-%m")
+
+formatted_date = get_target_yyyymm(2)
 
 
 dir_path= f"/Volumes/nyctaxi/00_landing/data_sources/nyctaxi_yellow/{formatted_date}"
