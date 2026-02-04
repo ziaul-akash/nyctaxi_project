@@ -16,3 +16,8 @@ spark.read.table("nyctaxi.02_silver.taxi_trips_enriched").groupBy(date_format("t
 # COMMAND ----------
 
 spark.read.table("nyctaxi.03_gold.daily_trip_summary").groupBy(date_format("pickup_date", "yyyy-MM").alias("year_month")).agg(sum("total_trips").alias('total_records')).orderBy("year_month", ascending= False).display()
+
+# COMMAND ----------
+
+df= spark.read.table("nyctaxi.04_export.yellow_trips_export")
+df.groupBy("year_month").agg(count("*").alias('total_records' )).orderBy("year_month", ascending= False).display()
