@@ -16,10 +16,11 @@ if project_root not in sys.path:
 
 from modules.transformations.metadata import add_processed_timestamp
 from modules.utils.date_utils import get_target_yyyymm
+
 # COMMAND ----------
 
 
-formatted_date = get_target_yyyymm(2)
+formatted_date = get_target_yyyymm(3)
 
 # COMMAND ----------
 

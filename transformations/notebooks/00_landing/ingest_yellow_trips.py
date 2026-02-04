@@ -1,5 +1,4 @@
 # Databricks notebook source
-
 import urllib.request
 import shutil
 import os
@@ -17,9 +16,9 @@ from dateutil.relativedelta import relativedelta
 
 # COMMAND ----------
 
-#formatting date to download data from 2 months prior to the current date
+#formatting date to download data from 3 months prior to the current date
 
-formatted_date = get_target_yyyymm(2)
+formatted_date = get_target_yyyymm(3)
 
 
 dir_path= f"/Volumes/nyctaxi/00_landing/data_sources/nyctaxi_yellow/{formatted_date}"

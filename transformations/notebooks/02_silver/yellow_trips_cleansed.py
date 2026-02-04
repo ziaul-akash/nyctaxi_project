@@ -16,15 +16,16 @@ if project_root not in sys.path:
 
 
 from modules.utils.date_utils import get_month_start_n_months_ago
+
 # COMMAND ----------
 
 df= spark.read.table("nyctaxi.01_bronze.yellow_trips_raw")
 
 # COMMAND ----------
 
-two_months_ago= get_month_start_n_months_ago(2)
-one_month_ago=get_month_start_n_months_ago(1)
-print(one_month_ago)
+three_months_ago= get_month_start_n_months_ago(3)
+two_month_ago=get_month_start_n_months_ago(2)
+
 
 # COMMAND ----------
 
@@ -36,7 +37,7 @@ df.agg(
 
 # COMMAND ----------
 
-df= df.filter((df.tpep_pickup_datetime >= two_months_ago) & (df.tpep_pickup_datetime < one_month_ago))
+df= df.filter((df.tpep_pickup_datetime >= three_months_ago) & (df.tpep_pickup_datetime < two_month_ago))
 
 # COMMAND ----------
 
