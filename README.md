@@ -17,6 +17,11 @@ The pipeline ingests raw trip data, cleans and enriches it, and produces aggrega
 
 🏗️ Architecture
 ----------------------
+<p align="center">
+  <img src="https://raw.githubusercontent.com/ziaul-akash/nyctaxi_project/refs/heads/main/solution_architecture/part_1_medallion_architecture.png" alt="Medallion Architechture" width="500"/>
+</p>
+
+
 Medallion Layers:
 
 🟤 Bronze Layer (nyctaxi.01_bronze)
